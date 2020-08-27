@@ -6,7 +6,9 @@ const {request, response} =  require('express');
 
 const server = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+server.use(express.static('./public'));
 
 server.listen(PORT, () => {
     console.log(`lisining to my port!!! ${PORT}`);
@@ -25,4 +27,3 @@ server.get('/data',(request,response) => {
 //      response.json(club);
 //  })
 
-server.use(express.static('./public'));
